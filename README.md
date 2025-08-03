@@ -1,12 +1,90 @@
-# React + Vite
+# enひかり 電気料金シミュレーター
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+enひかりの電気料金を簡単に計算できるWebアプリケーションです。月間使用電力量を入力するだけで、基本料金、電力量料金、再エネ賦課金を含めた推定料金を確認できます。
 
-Currently, two official plugins are available:
+## 機能
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **電力量入力**: 月間使用電力量（kWh）を入力
+- **割引適用**: 2025年8月・9月検針分の特別割引に対応
+- **料金計算**: 基本料金、電力量料金、再エネ賦課金を含めた総額表示
+- **内訳表示**: 各項目の詳細な計算内容を表示
+- **レスポンシブデザイン**: スマートフォンからデスクトップまで対応
 
-## Expanding the ESLint configuration
+## 料金体系
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **基本料金**: 390円
+- **電力量料金**: 25.3円/kWh
+- **再エネ賦課金**: 3.98円/kWh
+- **特別割引**:
+  - 2025年8月検針分: 2円/kWh 値引
+  - 2025年9月検針分: 2.4円/kWh 値引
+
+※ 東京電力管内の料金単価をもとに計算しています。
+
+## 技術スタック
+
+- **React 19**: UIライブラリ
+- **Vite**: ビルドツール
+- **Tailwind CSS**: スタイリング
+- **ESLint**: コード品質管理
+
+## セットアップ
+
+### 前提条件
+
+- Node.js 18以上
+- npm または yarn
+
+### インストール
+
+```bash
+# リポジトリをクローン
+git clone https://github.com/enkunkun/enhikari-sim.git
+cd enhikari-sim
+
+# 依存関係をインストール
+npm install
+
+# 開発サーバーを起動
+npm run dev
+```
+
+### 利用可能なスクリプト
+
+- `npm run dev` - 開発サーバーを起動
+- `npm run build` - プロダクション向けビルド
+- `npm run preview` - ビルドしたアプリのプレビュー
+- `npm run lint` - ESLintによるコードチェック
+
+## デプロイ
+
+このアプリケーションは静的サイトとしてデプロイできます。
+
+```bash
+# プロダクション用ビルド
+npm run build
+
+# distフォルダの内容を任意の静的ホスティングサービスにデプロイ
+```
+
+推奨デプロイ先:
+- Vercel
+- Netlify
+- GitHub Pages
+- Cloudflare Pages
+
+## 注意事項
+
+- **非公式ツール**: このシミュレーターは非公式であり、計算結果の正確性は保証されません
+- **料金変更**: 電気料金の変更には対応していない場合があります
+- **地域限定**: 東京電力管内の料金単価をもとに計算しています
+
+正確な料金については、必ず[enひかり公式サイト](https://enhikari.jp/denki.html)をご確認ください。
+
+## ライセンス
+
+このプロジェクトはMITライセンスの下で公開されています。
+
+## 貢献
+
+プルリクエストやIssueの報告は歓迎します。バグ修正や機能追加の提案がありましたら、お気軽にご連絡ください。
